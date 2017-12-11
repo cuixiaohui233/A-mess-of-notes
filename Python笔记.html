@@ -1,0 +1,106 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      
+      <div id="titlearea">
+        <h2>Python笔记</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><h1>一、基础部分</h1>
+<h2>and运算是与运算：</h2>
+<p>前为真就是后，前为假就是前</p>
+<h2>or运算时或运算：</h2>
+<p>前为真就是前，前为假就是后</p>
+<h2>not运算符是取反运算：</h2>
+<p>true为false,false为true</p>
+<h2>空值：</h2>
+<p>none</p>
+<h2>变量：</h2>
+<p>数字字母下划线和_，不能用字母开头区分大小写，</p>
+<h2>list:</h2>
+<p>list是一种有序的集合，可以随时添加和删除其中的元素。例如：<br>
+arr = ["red","green","blue"]<br>
+用len函数可以获取元素的个数，arr[0]表示第一个元素，arr[-1]表示最后一个元素。</p>
+<h2>list是一个有序列表，可以向最后添加元素：</h2>
+<p>arr.append("skyblue")</p>
+<h2>也可以向指定位置插入元素：</h2>
+<p>arr.insert(pos,要插入的元素)</p>
+<h2>删除末尾的元素：</h2>
+<p>arr.pop(i),i代表元素索引</p>
+<h2>替换：</h2>
+<p>class = ['Lily','Bob','Jack']</p>
+<h2>将Lily换成Rose：</h2>
+<p>class[0] = Rose,采用这种直接赋值就可以。<br>
+list = ['javascript','css','java',['python','php'],'AI']</p>
+<h2>如果想拿到python:</h2>
+<p>list[3][0]<br>
+当然也可以是空数组：<br>
+list = []<br>
+len(list) -&gt; 0</p>
+<h2>tuple元祖</h2>
+<p>tuple初始化就不能修改是不可变的，没有append和insert这些方法。<br>
+定义：<br>
+t = (1,2)<br>
+如果是一个空的：<br>
+t = ()<br>
+如果是一个元素：<br>
+t = (a,)<br>
+“可变的tuble”:<br>
+t = ('a','b',['c','d'],'e')<br>
+要想拿到'c':<br>
+t[2][0] = '哈哈哈'<br>
+再次输出t:<br>
+('a','b',['哈哈哈','d'],'e')<br>
+以上可以得出结论：<br>
+tuple的不可变是说tuble的每个元素指向不可变，即指向’a‘,就不可以指向’b‘,指向一个list们就不可以指向别的类型，但是！这个list本身是可变的。</p>
+<h2>条件判断</h2>
+<p>Python中用缩进规则：<br>
+age = 20<br>
+if age &gt; 18:<br>
+print('成年人')<br>
+elif age &lt; 18 and age &gt; 16:<br>
+pring('青年人')</p>
+<h2>int方法转换字符串变成数字：</h2>
+<p>int('123') 变成数字123<br>
+int('abc') 报错</p>
+<h2>循环</h2>
+<p>for ... in ...<br>
+arr = ['Michael', 'Bob', 'Tracy']<br>
+for name in arr:<br>
+print(name)<br>
+打印出来：<br>
+Michael,Bob,Tracy</p>
+<h3>renge函数：</h3>
+<p>这个函数可以生成一个整数序列</p>
+<h3>dict</h3>
+<p>dict的支持，dict全称dictionary，在其他语言中也称为map，使用键-值（key-value）存储，具有极快的查找速度。<br>
+举个栗子：<br>
+dirt = {'Michael':18,'Bob':20,'Tracy':19}<br>
+如果要拿到Tracy的年龄：<br>
+dirt['Tracy']</p>
+</div></div>
+      <script></script>
+    </body>
+    </html>
+  
