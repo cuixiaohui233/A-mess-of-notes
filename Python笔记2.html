@@ -1,149 +1,213 @@
-
-    <!DOCTYPE html>
-    <html>
-    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <!-- common.css -->
-      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
-      <!-- ace-static.css -->
-      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
-      <style>.ace-chrome .ace_gutter {background: #ebebeb;color: #333;overflow : hidden;}.ace-chrome .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-chrome {background-color: #FFFFFF;color: black;}.ace-chrome .ace_cursor {color: black;}.ace-chrome .ace_invisible {color: rgb(191, 191, 191);}.ace-chrome .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-chrome .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-chrome .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-chrome .ace_invalid {background-color: rgb(153, 0, 0);color: white;}.ace-chrome .ace_fold {}.ace-chrome .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-chrome .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-chrome .ace_support.ace_type,.ace-chrome .ace_support.ace_class.ace-chrome .ace_support.ace_other {color: rgb(109, 121, 222);}.ace-chrome .ace_variable.ace_parameter {font-style:italic;color:#FD971F;}.ace-chrome .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-chrome .ace_comment {color: #236e24;}.ace-chrome .ace_comment.ace_doc {color: #236e24;}.ace-chrome .ace_comment.ace_doc.ace_tag {color: #236e24;}.ace-chrome .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-chrome .ace_variable {color: rgb(49, 132, 149);}.ace-chrome .ace_xml-pe {color: rgb(104, 104, 91);}.ace-chrome .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-chrome .ace_heading {color: rgb(12, 7, 255);}.ace-chrome .ace_list {color:rgb(185, 6, 144);}.ace-chrome .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-chrome .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-chrome .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-chrome .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-chrome .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-chrome .ace_gutter-active-line {background-color : #dcdcdc;}.ace-chrome .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-chrome .ace_storage,.ace-chrome .ace_keyword,.ace-chrome .ace_meta.ace_tag {color: rgb(147, 15, 128);}.ace-chrome .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-chrome .ace_string {color: #1A1AA6;}.ace-chrome .ace_entity.ace_other.ace_attribute-name {color: #994409;}.ace-chrome .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}</style>
-      <!-- export.css -->
-      <style>
-        body{margin:0 auto;max-width:800px;line-height:1.4}
-        #nav{margin:5px 0 10px;font-size:15px}
-        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
-        #contentarea{font-size:15px;margin:16px 0}
-        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
-        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
-        .latex-cell{white-space:pre-wrap;}
-      </style>
-      <!-- User CSS -->
-      <style> .text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
-    </head>
-    <body>
-      
-      <div id="titlearea">
-        <h2>Python笔记2</h2>
-      </div>
-      <div id="contentarea"><div class="cell markdown-cell"><p>通过dirt的方法查找值，如果key不在，就会报错，避免key不在会报错，有两种方法：<br>
-1.通过in 判断key是否存在：<br>
-<code>key值 in dirt</code><br>
-如果key 存在，就会返回true,如果不存在，就返回false.<br>
-2.通过get()方法，如果key不存在e已返回none,或者自己指定value。<br>
-<code>dirt.get('throm')</code><br>
-如果不存在就返回None,但是在python命令行中不显示结果。<br>
-要删除一个key，用pop（key）方法,对应的vlaue也会从dirt中删除。<br>
-<code>dirt.pop('throm')</code><br>
-这样throm和她的vlaue 都会被删除。<br>
-3.和list的比较：<br>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1404.47">
+  <style type="text/css">
+    p.p2 {margin: 0.0px 0.0px 15.0px 0.0px; line-height: 21.0px; font: 15.0px '.PingFang SC'; color: #333333; -webkit-text-stroke: #333333}
+    p.p3 {margin: 0.0px 0.0px 15.0px 0.0px; line-height: 21.0px; font: 14.0px Menlo; color: #333333; -webkit-text-stroke: #333333}
+    p.p6 {margin: 0.0px 0.0px 15.0px 0.0px; line-height: 18.0px; font: 14.0px Menlo; color: #333333; -webkit-text-stroke: #333333}
+    p.p7 {margin: 0.0px 0.0px 15.0px 0.0px; line-height: 21.0px; font: 15.0px '.AppleSystemUIFont'; color: #0000ee; -webkit-text-stroke: #0000ee}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; line-height: 21.0px; font: 15.0px '.PingFang SC'; color: #333333; -webkit-text-stroke: #333333}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 15.0px '.AppleSystemUIFont'; color: #333333; -webkit-text-stroke: #333333}
+    p.p10 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 21.0px; font: 15.0px '.PingFang SC'; color: #333333; -webkit-text-stroke: #333333}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 26.0px '.PingFang SC'; font-kerning: none}
+    span.s3 {font: 15.0px '.AppleSystemUIFont'; font-kerning: none}
+    span.s4 {font-kerning: none; background-color: rgba(0, 0, 0, 0.039)}
+    span.s5 {font: 14.0px 'PingFang SC'; font-kerning: none; background-color: rgba(0, 0, 0, 0.039)}
+    span.s6 {font: 14.0px Menlo; font-kerning: none; background-color: rgba(0, 0, 0, 0.039)}
+    span.s7 {font: 15.0px '.PingFang SC'; font-kerning: none}
+    span.s8 {font-kerning: none; color: #333333; -webkit-text-stroke: 0px #333333}
+    span.s9 {font: 15.0px '.PingFang SC'; font-kerning: none; color: #333333; -webkit-text-stroke: 0px #333333}
+    span.s10 {font: 15.0px '.AppleSystemUIFont'; text-decoration: underline ; font-kerning: none; color: #0000ee; -webkit-text-stroke: 0px #0000ee}
+    span.s11 {text-decoration: underline ; font-kerning: none; color: #0000ee; -webkit-text-stroke: 0px #0000ee}
+    table.t1 {margin: 0.0px 0.0px 16.0px 0.0px; border-collapse: collapse}
+    td.td1 {width: 149.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #dddddd #dddddd #dddddd #dddddd; padding: 6.0px 13.0px 6.0px 13.0px}
+    td.td2 {width: 383.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #dddddd #dddddd #dddddd #dddddd; padding: 6.0px 13.0px 6.0px 13.0px}
+    td.td3 {width: 149.0px; background-color: #f8f8f8; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #dddddd #dddddd #dddddd #dddddd; padding: 6.0px 13.0px 6.0px 13.0px}
+    td.td4 {width: 383.0px; background-color: #f8f8f8; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #dddddd #dddddd #dddddd #dddddd; padding: 6.0px 13.0px 6.0px 13.0px}
+  </style>
+</head>
+<body>
+<h2 style="margin: 0.0px 0.0px 21.2px 0.0px; line-height: 28.0px; font: 26.0px '.AppleSystemUIFont'; color: #333333; -webkit-text-stroke: #333333"><span class="s1"><b>Python</b></span><span class="s2">笔记</span><span class="s1"><b>2</b></span></h2>
+<p class="p2"><span class="s1">通过</span><span class="s3">dirt</span><span class="s1">的方法查找值，如果</span><span class="s3">key</span><span class="s1">不在，就会报错，避免</span><span class="s3">key</span><span class="s1">不在会报错，有两种方法：</span><span class="s3"><br>
+1.</span><span class="s1">通过</span><span class="s3">in </span><span class="s1">判断</span><span class="s3">key</span><span class="s1">是否存在：</span></p>
+<p class="p3"><span class="s3"><br>
+</span><span class="s4">key</span><span class="s5">值</span><span class="s4"> in dirt</span></p>
+<p class="p2"><span class="s3"><br>
+</span><span class="s1">如果</span><span class="s3">key </span><span class="s1">存在，就会返回</span><span class="s3">true</span><span class="s1">,如果不存在，就返回</span><span class="s3">false.<br>
+2.</span><span class="s1">通过</span><span class="s3">get</span><span class="s1">()方法，如果</span><span class="s3">key</span><span class="s1">不存在</span><span class="s3">e</span><span class="s1">已返回</span><span class="s3">none</span><span class="s1">,或者自己指定</span><span class="s3">value</span><span class="s1">。</span><span class="s3"><br>
+</span><span class="s6">dirt.get('throm')</span><span class="s3"><br>
+</span><span class="s1">如果不存在就返回</span><span class="s3">None</span><span class="s1">,但是在</span><span class="s3">python</span><span class="s1">命令行中不显示结果。</span><span class="s3"><br>
+</span><span class="s1">要删除一个</span><span class="s3">key</span><span class="s1">，用</span><span class="s3">pop</span><span class="s1">（</span><span class="s3">key</span><span class="s1">）方法,对应的</span><span class="s3">vlaue</span><span class="s1">也会从</span><span class="s3">dirt</span><span class="s1">中删除。</span><span class="s3"><br>
+</span><span class="s6">dirt.pop('throm')</span><span class="s3"><br>
+</span><span class="s1">这样</span><span class="s3">throm</span><span class="s1">和她的</span><span class="s3">vlaue </span><span class="s1">都会被删除。</span><span class="s3"><br>
+3.</span><span class="s1">和</span><span class="s3">list</span><span class="s1">的比较：</span><span class="s3"><br>
 dirt:<br>
-a.和list比，dirt查找的速度更快，不会随着key的增多变慢。<br>
-b.单dirt占用的内存较多。<br>
-list：<br>
-a.查找和插入的时间会随着元素的增加而增加；<br>
-b.占用内存少，内存浪费少。<br>
-4.需要注意一点：dirt的key是不可变的!!!通过key来找元素，如果总是变化，那么dirt会乱套的。这个通过key找value的方法叫做哈希算法。在Python中，字符串，整数都是不可变的，因此可以放心的作为key,但是list不可以，因为list是可变的。</p>
-<h2>set</h2>
-<p>set是一组key的集合，但是不存储value。由于key不能重复，所以在set中没有重复的key。<br>
-1.创建：<br>
-<code>set(['a','b','c'])</code> 回车<br>
-<code>{'a','b','c'}</code><br>
-显示'a','b','c'不代表set是有序的，只是说set中有'a','b','c'这三个元素。<br>
-2.重复元素在set中会被过滤<br>
-<code>set(['a','b','c','a'])</code>回车<br>
-<code>{'a','b','c'}</code><br>
-3.add(key)方法添加元素到set中，但是重复添加不会有效果。<br>
-4.remove(key)方法删除元素。<br>
-5.和dirt的区别：<br>
-区别：set没有没有对应的vlaue值，也不可设置。<br>
-相同点：set和dirt一样，不可以放入可变元素。，因为无法判断可变元素是否相等，无法保证set内部”无重复元素“的规则</p>
-<h2>不可变对象</h2>
-<p>str是不可变对象，list是可变对象。<br>
-对于可变对象：</p>
-<p><code>a = ['b','c','a']</code><br>
-<code>a.sort()</code><br>
-<code>a = ['a','b','c']</code><br>
-对于不可变对象：</p>
-<p><code>a = 'abc'</code><br>
-<code>a.replace('a','A')</code><br>
-<code>a = 'abc'</code></p>
-<p>a是变量，而字符串‘123’才是字符串对象，a指向的是内容是字符串‘abc’,当我们调用a.relpace()方法的时候，实际上这个方法是作用在字符串‘abc’上的。不改变原来的字符串，会返回修改后的新的字符串。</p>
-<p>结论：<br>
-对于不可变对象来说，调用自身的方法，不会改变自身，但是会返回一个新的改变后的值，可以用一个变量接收。</p>
-<h2>调用函数</h2>
-<p>1.内置函数：<br>
-官方网址：<a href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a><br>
-2.数据类型转换</p>
-<table>
-<thead>
-<tr>
-<th>函数名</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>int(x [,base ])</td>
-<td>将x转换为一个整数</td>
-</tr>
-<tr>
-<td>long(x [,base ])</td>
-<td>将x转换为一个长整数</td>
-</tr>
-<tr>
-<td>float(x )</td>
-<td>将x转换到一个浮点数</td>
-</tr>
-<tr>
-<td>complex(real [,imag ])</td>
-<td>创建一个复数</td>
-</tr>
-<tr>
-<td>str(x )</td>
-<td>将对象 x 转换为字符串</td>
-</tr>
-<tr>
-<td>repr(x )</td>
-<td>将对象 x 转换为表达式字符串</td>
-</tr>
-<tr>
-<td>eval(str )</td>
-<td>用来计算在字符串中的有效Python表达式,并返回一个对象</td>
-</tr>
-<tr>
-<td>tuple(s )</td>
-<td>将序列 s 转换为一个元组</td>
-</tr>
-<tr>
-<td>list(s )</td>
-<td>将序列 s 转换为一个列表</td>
-</tr>
-<tr>
-<td>chr(x )</td>
-<td>将一个整数转换为一个字符</td>
-</tr>
-<tr>
-<td>unichr(x )</td>
-<td>将一个整数转换为Unicode字符</td>
-</tr>
-<tr>
-<td>ord(x )</td>
-<td>将一个字符转换为它的整数值</td>
-</tr>
-<tr>
-<td>hex(x )</td>
-<td>将一个整数转换为一个十六进制字符串</td>
-</tr>
-<tr>
-<td>oct(x )</td>
-<td>将一个整数转换为一个八进制字符串</td>
-</tr>
-</tbody>
+a.</span><span class="s1">和</span><span class="s3">list</span><span class="s1">比，</span><span class="s3">dirt</span><span class="s1">查找的速度更快，不会随着</span><span class="s3">key</span><span class="s1">的增多变慢。</span><span class="s3"><br>
+b.</span><span class="s1">单</span><span class="s3">dirt</span><span class="s1">占用的内存较多。</span><span class="s3"><br>
+list</span><span class="s1">：</span><span class="s3"><br>
+a.</span><span class="s1">查找和插入的时间会随着元素的增加而增加；</span><span class="s3"><br>
+b.</span><span class="s1">占用内存少，内存浪费少。</span><span class="s3"><br>
+4.</span><span class="s1">需要注意一点：</span><span class="s3">dirt</span><span class="s1">的</span><span class="s3">key</span><span class="s1">是不可变的</span><span class="s3">!!!</span><span class="s1">通过</span><span class="s3">key</span><span class="s1">来找元素，如果总是变化，那么</span><span class="s3">dirt</span><span class="s1">会乱套的。这个通过</span><span class="s3">key</span><span class="s1">找</span><span class="s3">value</span><span class="s1">的方法叫做哈希算法。在</span><span class="s3">Python</span><span class="s1">中，字符串，整数都是不可变的，因此可以放心的作为</span><span class="s3">key</span><span class="s1">,但是</span><span class="s3">list</span><span class="s1">不可以，因为</span><span class="s3">list</span><span class="s1">是可变的。</span></p>
+<h2 style="margin: 0.0px 0.0px 18.7px 0.0px; line-height: 24.0px; font: 23.0px '.AppleSystemUIFont'; color: #333333; -webkit-text-stroke: #333333"><span class="s1"><b>set</b></span></h2>
+<p class="p2"><span class="s3">set</span><span class="s1">是一组</span><span class="s3">key</span><span class="s1">的集合，但是不存储</span><span class="s3">value</span><span class="s1">。由于</span><span class="s3">key</span><span class="s1">不能重复，所以在</span><span class="s3">set</span><span class="s1">中没有重复的</span><span class="s3">key</span><span class="s1">。</span><span class="s3"><br>
+1.</span><span class="s1">创建：</span><span class="s3"><br>
+</span><span class="s6">set(['a','b','c'])</span><span class="s3"> </span><span class="s1">回车</span><span class="s3"><br>
+</span><span class="s6">{'a','b','c'}</span><span class="s3"><br>
+</span><span class="s1">显示</span><span class="s3">'a'</span><span class="s1">,</span><span class="s3">'b'</span><span class="s1">,</span><span class="s3">'c'</span><span class="s1">不代表</span><span class="s3">set</span><span class="s1">是有序的，只是说</span><span class="s3">set</span><span class="s1">中有</span><span class="s3">'a'</span><span class="s1">,</span><span class="s3">'b'</span><span class="s1">,</span><span class="s3">'c'</span><span class="s1">这三个元素。</span><span class="s3"><br>
+2.</span><span class="s1">重复元素在</span><span class="s3">set</span><span class="s1">中会被过滤</span><span class="s3"><br>
+</span><span class="s6">set(['a','b','c','a'])</span><span class="s1">回车</span><span class="s3"><br>
+</span><span class="s6">{'a','b','c'}</span><span class="s3"><br>
+3.add</span><span class="s1">(</span><span class="s3">key</span><span class="s1">)方法添加元素到</span><span class="s3">set</span><span class="s1">中，但是重复添加不会有效果。</span><span class="s3"><br>
+4.remove</span><span class="s1">(</span><span class="s3">key</span><span class="s1">)方法删除元素。</span><span class="s3"><br>
+5.</span><span class="s1">和</span><span class="s3">dirt</span><span class="s1">的区别：</span><span class="s3"><br>
+</span><span class="s1">区别：</span><span class="s3">set</span><span class="s1">没有没有对应的</span><span class="s3">vlaue</span><span class="s1">值，也不可设置。</span><span class="s3"><br>
+</span><span class="s1">相同点：</span><span class="s3">set</span><span class="s1">和</span><span class="s3">dirt</span><span class="s1">一样，不可以放入可变元素。，因为无法判断可变元素是否相等，无法保证</span><span class="s3">set</span><span class="s1">内部”无重复元素“的规则</span></p>
+<h2 style="margin: 0.0px 0.0px 18.7px 0.0px; line-height: 24.0px; font: 23.0px '.PingFang SC'; color: #333333; -webkit-text-stroke: #333333"><span class="s1">不可变对象</span></h2>
+<p class="p2"><span class="s3">str</span><span class="s1">是不可变对象，</span><span class="s3">list</span><span class="s1">是可变对象。</span><span class="s3"><br>
+</span><span class="s1">对于可变对象：</span></p>
+<p class="p6"><span class="s4">a = ['b','c','a']</span><span class="s3"><br>
+</span><span class="s4">a.sort()</span><span class="s3"><br>
+</span><span class="s4">a = ['a','b','c']</span><span class="s3"><br>
+</span><span class="s7">对于不可变对象：</span></p>
+<p class="p6"><span class="s4">a = 'abc'</span><span class="s3"><br>
+</span><span class="s4">a.replace('a','A')</span><span class="s3"><br>
+</span><span class="s4">a = 'abc'</span></p>
+<p class="p2"><span class="s3">a</span><span class="s1">是变量，而字符串‘</span><span class="s3">123</span><span class="s1">’才是字符串对象，</span><span class="s3">a</span><span class="s1">指向的是内容是字符串‘</span><span class="s3">abc</span><span class="s1">’,当我们调用</span><span class="s3">a.relpace</span><span class="s1">()方法的时候，实际上这个方法是作用在字符串‘</span><span class="s3">abc</span><span class="s1">’上的。不改变原来的字符串，会返回修改后的新的字符串。</span></p>
+<p class="p2"><span class="s1">结论：</span><span class="s3"><br>
+</span><span class="s1">对于不可变对象来说，调用自身的方法，不会改变自身，但是会返回一个新的改变后的值，可以用一个变量接收。</span></p>
+<h2 style="margin: 0.0px 0.0px 18.7px 0.0px; line-height: 24.0px; font: 23.0px '.PingFang SC'; color: #333333; -webkit-text-stroke: #333333"><span class="s1">调用函数</span></h2>
+<p class="p7"><span class="s8">1.</span><span class="s9">内置函数：</span><span class="s8"><br>
+</span><span class="s9">官方网址：<a href="https://docs.python.org/3/library/functions.html"><span class="s10">https:</span><span class="s11">//</span><span class="s10">docs.python.org</span><span class="s11">/</span><span class="s10">3</span><span class="s11">/</span><span class="s10">library</span><span class="s11">/</span><span class="s10">functions.html</span></a></span><span class="s8"><br>
+2.</span><span class="s9">数据类型转换</span></p>
+<table cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8"><span class="s1">函数名</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p8"><span class="s1">描述</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9"><span class="s1">int</span><span class="s7">(</span><span class="s1">x [</span><span class="s7">,</span><span class="s1">base ]</span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p10"><span class="s1">将</span><span class="s3">x</span><span class="s1">转换为一个整数</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td3">
+        <p class="p9"><span class="s1">long</span><span class="s7">(</span><span class="s1">x [</span><span class="s7">,</span><span class="s1">base ]</span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p10"><span class="s1">将</span><span class="s3">x</span><span class="s1">转换为一个长整数</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9"><span class="s1">float</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p10"><span class="s1">将</span><span class="s3">x</span><span class="s1">转换到一个浮点数</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td3">
+        <p class="p9"><span class="s1">complex</span><span class="s7">(</span><span class="s1">real [</span><span class="s7">,</span><span class="s1">imag ]</span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p10"><span class="s1">创建一个复数</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9"><span class="s1">str</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p10"><span class="s1">将对象</span><span class="s3"> x </span><span class="s1">转换为字符串</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td3">
+        <p class="p9"><span class="s1">repr</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p10"><span class="s1">将对象</span><span class="s3"> x </span><span class="s1">转换为表达式字符串</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9"><span class="s1">eval</span><span class="s7">(</span><span class="s1">str </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p10"><span class="s1">用来计算在字符串中的有效</span><span class="s3">Python</span><span class="s1">表达式,并返回一个对象</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td3">
+        <p class="p9"><span class="s1">tuple</span><span class="s7">(</span><span class="s1">s </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p10"><span class="s1">将序列</span><span class="s3"> s </span><span class="s1">转换为一个元组</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9"><span class="s1">list</span><span class="s7">(</span><span class="s1">s </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p10"><span class="s1">将序列</span><span class="s3"> s </span><span class="s1">转换为一个列表</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td3">
+        <p class="p9"><span class="s1">chr</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p10"><span class="s1">将一个整数转换为一个字符</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9"><span class="s1">unichr</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p10"><span class="s1">将一个整数转换为</span><span class="s3">Unicode</span><span class="s1">字符</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td3">
+        <p class="p9"><span class="s1">ord</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p10"><span class="s1">将一个字符转换为它的整数值</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p9"><span class="s1">hex</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td2">
+        <p class="p10"><span class="s1">将一个整数转换为一个十六进制字符串</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td3">
+        <p class="p9"><span class="s1">oct</span><span class="s7">(</span><span class="s1">x </span><span class="s7">)</span></p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p10"><span class="s1">将一个整数转换为一个八进制字符串</span></p>
+      </td>
+    </tr>
+  </tbody>
 </table>
-</div></div>
-      <script></script>
-    </body>
-    </html>
-  
+</body>
+</html>
