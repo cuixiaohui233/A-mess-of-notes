@@ -25,9 +25,124 @@
     <body>
       
       <div id="titlearea">
-        <h2>Python笔记3</h2>
+        <h2>Python笔记2</h2>
       </div>
-      <div id="contentarea"><div class="cell markdown-cell"><h2>定义函数</h2>
+      <div id="contentarea"><div class="cell markdown-cell"><p>通过dirt的方法查找值，如果key不在，就会报错，避免key不在会报错，有两种方法：<br>
+1.通过in 判断key是否存在：<br>
+<code>key值 in dirt</code><br>
+如果key 存在，就会返回true,如果不存在，就返回false.<br>
+2.通过get()方法，如果key不存在e已返回none,或者自己指定value。<br>
+<code>dirt.get('throm')</code><br>
+如果不存在就返回None,但是在python命令行中不显示结果。<br>
+要删除一个key，用pop（key）方法,对应的vlaue也会从dirt中删除。<br>
+<code>dirt.pop('throm')</code><br>
+这样throm和她的vlaue 都会被删除。<br>
+3.和list的比较：<br>
+dirt:<br>
+a.和list比，dirt查找的速度更快，不会随着key的增多变慢。<br>
+b.单dirt占用的内存较多。<br>
+list：<br>
+a.查找和插入的时间会随着元素的增加而增加；<br>
+b.占用内存少，内存浪费少。<br>
+4.需要注意一点：dirt的key是不可变的!!!通过key来找元素，如果总是变化，那么dirt会乱套的。这个通过key找value的方法叫做哈希算法。在Python中，字符串，整数都是不可变的，因此可以放心的作为key,但是list不可以，因为list是可变的。</p>
+<h2>set</h2>
+<p>set是一组key的集合，但是不存储value。由于key不能重复，所以在set中没有重复的key。<br>
+1.创建：<br>
+<code>set(['a','b','c'])</code> 回车<br>
+<code>{'a','b','c'}</code><br>
+显示'a','b','c'不代表set是有序的，只是说set中有'a','b','c'这三个元素。<br>
+2.重复元素在set中会被过滤<br>
+<code>set(['a','b','c','a'])</code>回车<br>
+<code>{'a','b','c'}</code><br>
+3.add(key)方法添加元素到set中，但是重复添加不会有效果。<br>
+4.remove(key)方法删除元素。<br>
+5.和dirt的区别：<br>
+区别：set没有没有对应的vlaue值，也不可设置。<br>
+相同点：set和dirt一样，不可以放入可变元素。，因为无法判断可变元素是否相等，无法保证set内部”无重复元素“的规则</p>
+<h2>不可变对象</h2>
+<p>str是不可变对象，list是可变对象。<br>
+对于可变对象：</p>
+<p><code>a = ['b','c','a']</code><br>
+<code>a.sort()</code><br>
+<code>a = ['a','b','c']</code><br>
+对于不可变对象：</p>
+<p><code>a = 'abc'</code><br>
+<code>a.replace('a','A')</code><br>
+<code>a = 'abc'</code></p>
+<p>a是变量，而字符串‘123’才是字符串对象，a指向的是内容是字符串‘abc’,当我们调用a.relpace()方法的时候，实际上这个方法是作用在字符串‘abc’上的。不改变原来的字符串，会返回修改后的新的字符串。</p>
+<p>结论：<br>
+对于不可变对象来说，调用自身的方法，不会改变自身，但是会返回一个新的改变后的值，可以用一个变量接收。</p>
+<h2>调用函数</h2>
+<p>1.内置函数：<br>
+官方网址：<a href="https://docs.python.org/3/library/functions.html">https://docs.python.org/3/library/functions.html</a><br>
+2.数据类型转换</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>int(x [,base ])</td>
+<td>将x转换为一个整数</td>
+</tr>
+<tr>
+<td>long(x [,base ])</td>
+<td>将x转换为一个长整数</td>
+</tr>
+<tr>
+<td>float(x )</td>
+<td>将x转换到一个浮点数</td>
+</tr>
+<tr>
+<td>complex(real [,imag ])</td>
+<td>创建一个复数</td>
+</tr>
+<tr>
+<td>str(x )</td>
+<td>将对象 x 转换为字符串</td>
+</tr>
+<tr>
+<td>repr(x )</td>
+<td>将对象 x 转换为表达式字符串</td>
+</tr>
+<tr>
+<td>eval(str )</td>
+<td>用来计算在字符串中的有效Python表达式,并返回一个对象</td>
+</tr>
+<tr>
+<td>tuple(s )</td>
+<td>将序列 s 转换为一个元组</td>
+</tr>
+<tr>
+<td>list(s )</td>
+<td>将序列 s 转换为一个列表</td>
+</tr>
+<tr>
+<td>chr(x )</td>
+<td>将一个整数转换为一个字符</td>
+</tr>
+<tr>
+<td>unichr(x )</td>
+<td>将一个整数转换为Unicode字符</td>
+</tr>
+<tr>
+<td>ord(x )</td>
+<td>将一个字符转换为它的整数值</td>
+</tr>
+<tr>
+<td>hex(x )</td>
+<td>将一个整数转换为一个十六进制字符串</td>
+</tr>
+<tr>
+<td>oct(x )</td>
+<td>将一个整数转换为一个八进制字符串</td>
+</tr>
+</tbody>
+</table>
+<h2>定义函数</h2>
 <p>def fn(a,b):<br>
 a = 10<br>
 b = 20<br>
@@ -36,19 +151,6 @@ return a + b</p>
 <h3>定义空函数</h3>
 <p>def fn():<br>
 pass</p>
-<p>return 返回函数值，不写默认返回None</p>
-<h3>参数检查</h3>
-<p>isinstance() 例：<br>
-<code>def fn(x):</code><br>
-<code>if not isinstance(x,(int,float)):</code><br>
-<code>return TypeError('请输入数字')</code></p>
-<h3>返回多个值:就是返回一个tuble</h3>
-<p><code>def fn(a,b):</code><br>
-<code>a = a + 1</code><br>
-<code>b= b +2</code><br>
-<code>return a,b</code><br>
-<code>r = fn(10,20)</code><br>
-返回（11，22）</p>
 </div></div>
       <script></script>
     </body>
