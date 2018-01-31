@@ -2,9 +2,9 @@
   SELECT *
   FROM
   数据表
-  WHERE 限制条件
-2.ORDER BY 排序
-3.JOIN
+  WHERE 限制条件</br>
+2.ORDER BY 排序</br>
+3.JOIN</br>
   用于根据两个或多个表中的列之间的关系，从这些表中查询数据。
   SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
   FROM Persons
@@ -172,4 +172,40 @@
   |----|----|----|----|----|----|
   |2|	Bush	|George	|Fifth Avenue|	New York|
   |3|	Carter	|Thomas	|Changan Street|	Beijing|
+  
+7.SQL通配符
+  在搜索数据库中的数据时，SQL 通配符可以替代一个或多个字符。
+  SQL 通配符必须与 LIKE 运算符一起使用。
+  在 SQL 中，可使用以下通配符：
+  
+  |通配符|	描述|
+  |----|----|----
+  |%	|替代一个或多个字符|
+  |_|	仅替代一个字符|
+  |[charlist]	|字符列中的任何单一字符
+  |[^charlist]或者[!charlist]|不在字符列中的任何单一字符
+8.in操作符：
+  IN 操作符允许我们在 WHERE 子句中规定多个值。
+  
+  例子：
+  原始的表：
+  Persons 表:
+  |Id|	LastName|	FirstName|	Address|	City|
+  |----|----|----|----|----|
+  |1|	Adams	|John|	Oxford Street|	London|
+  |2|	Bush|	George|	Fifth Avenue|	New York|
+  |3|	Carter|	Thomas|	Changan Street|	Beijing|
+  |4|	Obama	Barack|	Pennsylvania Avenue|	Washington|
+  
+  现在，我们希望从上表中选取姓氏为 Adams 和 Carter 的人：
+  我们可以使用下面的 SELECT 语句：
+  
+  SELECT * FROM Persons
+  WHERE LastName IN ('Adams','Carter')
+  
+  结果集：
+  |Id|	LastName|	FirstName|	Address|	City|
+  |----|----|----|----|----|
+  |1|	Adams|	John|	Oxford| Street|	London|
+  |3|Carter	|Thomas|	Changan |Street	|Beijing|
 
