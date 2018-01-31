@@ -156,7 +156,7 @@
   得到的结果：
   
   |Id|	LastName	| FirstName	| Address|	City|
-  |----|----|----|----|----|----|
+  |----|----|----|----|----| 
   |3|	Carter	| Thomas	|Changan Street|	Beijing|
   
   
@@ -169,7 +169,7 @@
   得到的结果：
   
   |Id|	LastName	| FirstName	| Address|	City|
-  |----|----|----|----|----|----|
+  |----|----|----|----|----| 
   |1|	Adams	| John|	Oxford Street|	London|
   
   
@@ -182,7 +182,7 @@
   得到的结果：
   
   |Id|	LastName	| FirstName	| Address|	City|
-  |----|----|----|----|----|----|
+  |----|----|----|----|----| 
   |2|	Bush	| George	|Fifth Avenue|	New York|
   |3|	Carter	| Thomas	|Changan Street|	Beijing|
   
@@ -192,7 +192,7 @@
   在 SQL 中，可使用以下通配符：
   
   |通配符|	描述|
-  |----|----|----
+  |----|----| 
   |%	|替代一个或多个字符|
   |_|	仅替代一个字符|
   |[charlist]	|字符列中的任何单一字符
