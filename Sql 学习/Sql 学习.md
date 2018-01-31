@@ -126,7 +126,7 @@
   原始的表：</br>
   Persons 表:
   
-  |Id|	LastName	|FirstName	|Address|	City|
+  |Id|	LastName	|FirstName	| Address |	City |
   |----|----|----|----|----|----|
   |1|	Adams	|John|	Oxford Street|	London|
   |2|	Bush	|George	|Fifth Avenue|	New York|
