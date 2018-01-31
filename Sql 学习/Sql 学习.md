@@ -25,19 +25,19 @@
   例子：</br>
   下面的例子中使用的原始表:</br>
   Employees_China:</br>
-  | E_ID |	E_Name|
-  | ---- | ----: |
+  | E_ID |	E_Name |
+  | ----- | -----: |
   | 01 |	Zhang, Hua |
   | 02 |	Wang, Wei |
   | 03 |	Carter, Thomas |
   |04 |	Yang, Ming |
   Employees_USA:</br>
-  |E_ID|	E_Name
-  |----|----|
-  |01	|Adams, John
-  |02	|Bush, George
-  |03	|Carter, Thomas
-  |04	|Gates, Bill
+  | E_ID |	E_Name |
+  | ---- | ---- |
+  | 01	| Adams, John |
+  | 02	| Bush, George |
+  | 03	| Carter, Thomas |
+  | 04	| Gates, Bill |
   使用UNION命令</br>
   列出所有在中国和美国的不同的雇员名：</br>
   
