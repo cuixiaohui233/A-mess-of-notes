@@ -21,7 +21,7 @@
   请注意，UNION 内部的 SELECT</br> 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。</br>
   `SELECT column_name(s) FROM table_name1
   UNION
-  SELECT column_name(s) FROM table_name2`
+  SELECT column_name(s) FROM table_name2`  
   例子：</br>
   下面的例子中使用的原始表:</br>
   Employees_China:</br>
