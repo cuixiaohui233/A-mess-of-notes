@@ -1,10 +1,10 @@
-###1.声明一个 sql 语句
+### 1.声明一个 sql 语句
   SELECT *
   FROM
   数据表
   WHERE 限制条件</br>
-###2.ORDER BY 排序
-###3.JOIN
+### 2.ORDER BY 排序
+### 3.JOIN
   用于根据两个或多个表中的列之间的关系，从这些表中查询数据。
   SELECT Persons.LastName, Persons.FirstName, Orders.OrderNo
   FROM Persons
@@ -25,8 +25,8 @@
   例子：
   下面的例子中使用的原始表：
   Employees_China:
-  E_ID|	E_Name|
-  |----|----|----|
+  |E_ID|	E_Name|
+  |----|----|
   |01|	Zhang, Hua|
   |02|	Wang, Wei|
   |03|	Carter, Thomas
