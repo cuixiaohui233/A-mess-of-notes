@@ -144,7 +144,7 @@
   
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
-  |2|	Adams	|John|	Oxford Street|	London|
+  |2|	Adams	| John |	Oxford Street|	London|
   
   
   接下来，我们希望从 "Persons" 表中选取居住在以 "g" 结尾的城市里的人：</br>
@@ -157,7 +157,7 @@
   
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
-  |3|	Carter	|Thomas	|Changan Street|	Beijing|
+  |3|	Carter	| Thomas	|Changan Street|	Beijing|
   
   
   接下来，我们希望从 "Persons" 表中选取居住在包含 "lon" 的城市里的人：</br>
@@ -170,7 +170,7 @@
   
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
-  |1|	Adams	|John|	Oxford Street|	London|
+  |1|	Adams	| John|	Oxford Street|	London|
   
   
   通过使用 NOT 关键字，我们可以从 "Persons" 表中选取居住在不包含 "lon" 的城市里的人：</br>
@@ -183,8 +183,8 @@
   
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
-  |2|	Bush	|George	|Fifth Avenue|	New York|
-  |3|	Carter	|Thomas	|Changan Street|	Beijing|
+  |2|	Bush	| George	|Fifth Avenue|	New York|
+  |3|	Carter	| Thomas	|Changan Street|	Beijing|
   
 ### 8.SQL通配符
   在搜索数据库中的数据时，SQL 通配符可以替代一个或多个字符。</br>
@@ -223,5 +223,5 @@
   |Id|	LastName|	FirstName|	Address|	City|
   |----|----|----|----|----|
   |1|	Adams|	John|	Oxford| Street|	London|
-  |3|Carter	|Thomas|	Changan |Street	|Beijing|
+  |3|Carter	| Thomas|	Changan |Street	|Beijing|
 
