@@ -11,27 +11,27 @@
   INNER JOIN Orders
   ON Persons.Id_P = Orders.Id_P
   ORDER BY Persons.LastName</br>
-###4.JOIN: 如果表中有至少一个匹配，则返回行
+### 4.JOIN: 如果表中有至少一个匹配，则返回行
   LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行
   RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行
   FULL JOIN: 只要其中一个表中存在匹配，就返回行
   INNER JOIN: 在表中存在至少一个匹配时，INNER JOIN 关键字返回行。INNER JOIN 与 JOIN 是相同的。</br>
-###5.UNION
+### 5.UNION
   UNION 操作符用于合并两个或多个 SELECT 语句的结果集。</br>
   请注意，UNION 内部的 SELECT</br> 语句必须拥有相同数量的列。列也必须拥有相似的数据类型。同时，每条 SELECT 语句中的列的顺序必须相同。</br>
   `SELECT column_name(s) FROM table_name1
   UNION
   SELECT column_name(s) FROM table_name2`
-  例子：
-  下面的例子中使用的原始表：
-  Employees_China:
+  例子：</br>
+  下面的例子中使用的原始表:</br>
+  Employees_China:</br>
   |E_ID|	E_Name|
-  |----|----|
+  |----|----:|
   |01|	Zhang, Hua|
   |02|	Wang, Wei|
-  |03|	Carter, Thomas
+  |03|	Carter, Thomas|
   |04|	Yang, Ming|
-  Employees_USA:
+  Employees_USA:</br>
   |E_ID|	E_Name
   |----|----|
   |01	|Adams, John
@@ -77,7 +77,7 @@
   |Carter, Thomas|
   |Gates, Bill|
 
-###6.TOP 子句
+### 6.TOP 子句
   TOP 子句用于规定要返回的记录的数目。</br>
   对于拥有数千条记录的大型表来说，TOP 子句是非常有用的。</br>
   注释：并非所有的数据库系统都支持 TOP 子句。</br>
@@ -112,7 +112,7 @@
   |1	|Adams	|ohn	|Oxford Street	|London
   |2	|Bush	|George	|Fifth Avenue	|New York
   
-###7.LIKE 操作符
+### 7.LIKE 操作符
   LIKE 操作符用于在 WHERE 子句中搜索列中的指定模式。</br>
   例子：</br>
   原始的表：</br>
@@ -173,7 +173,7 @@
   |2|	Bush	|George	|Fifth Avenue|	New York|
   |3|	Carter	|Thomas	|Changan Street|	Beijing|
   
-###8.SQL通配符
+### 8.SQL通配符
   在搜索数据库中的数据时，SQL 通配符可以替代一个或多个字符。</br>
   SQL 通配符必须与 LIKE 运算符一起使用。</br>
   在 SQL 中，可使用以下通配符：
@@ -184,7 +184,7 @@
   |_|	仅替代一个字符|
   |[charlist]	|字符列中的任何单一字符
   |[^charlist]或者[!charlist]|不在字符列中的任何单一字符
-###9.in操作符：
+### 9.in操作符：
   IN 操作符允许我们在 WHERE 子句中规定多个值。</br>
   
   例子：</br>
