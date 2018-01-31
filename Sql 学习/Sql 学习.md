@@ -126,11 +126,11 @@
   原始的表：</br>
   Persons 表:
   
-  |Id|	LastName	|FirstName	| Address |	City |
-  |----|----|----|----|----|----|
-  |1|	Adams	|John|	Oxford Street|	London|
-  |2|	Bush	|George	|Fifth Avenue|	New York|
-  |3|	Carter	|Thomas	|Changan Street|	Beijing|
+  |Id|	LastName|	FirstName|	Address|	City|
+  |----|----|----|----|----|
+  |1|	Adams	| John|	Oxford Street|	London|
+  |2|	Bush	| George	|Fifth Avenue|	New York|
+  |3|	Carter	| Thomas	|Changan Street|	Beijing|
   
   现在，我们希望从上面的 "Persons" 表中选取居住在以 "N" 开始的城市里的人</br>：
   我们可以使用下面的 SELECT 语句：</br>
