@@ -143,7 +143,7 @@
   得到的结果：
   
   |Id|	LastName	| FirstName	| Address|	City|
-  |----|----|----|----|----|----|
+  |----|----|----|----|----|
   |2|	Adams	| John |	Oxford Street|	London|
   
   
