@@ -25,12 +25,12 @@
   例子：</br>
   下面的例子中使用的原始表:</br>
   Employees_China:</br>
-  |E_ID|	E_Name|
-  |----|----:|
-  |01|	Zhang, Hua|
-  |02|	Wang, Wei|
-  |03|	Carter, Thomas|
-  |04|	Yang, Ming|
+  | E_ID |	E_Name|
+  | ---- | ----: |
+  | 01 |	Zhang, Hua |
+  | 02 |	Wang, Wei |
+  | 03 |	Carter, Thomas |
+  |04 |	Yang, Ming |
   Employees_USA:</br>
   |E_ID|	E_Name
   |----|----|
