@@ -50,6 +50,7 @@
   SELECT E_Name FROM Employees_USA`
   
   得出的结果：</br>
+  
   |E_Name|
   |----|
   |Zhang, Hua|
@@ -88,6 +89,7 @@
   例子：</br>
   原始的表：</br>
   Persons 表:
+  
   |Id|	LastName|	FirstName|	Address|	City|
   |----|----|----|----|----|
   |1|	Adams	|John|	Oxford Street|	London|
@@ -100,6 +102,7 @@
   `SELECT TOP 2 * FROM Persons`
   
   得出的结果：
+  
   |Id|	LastName|	FirstName|	Address|	City|
   |----|----|----|----|----|
   |1|Adams|	John	|Oxford Street	|London|
@@ -111,6 +114,7 @@
   `SELECT TOP 50 PERCENT * FROM Persons`
 
   得到的结果：
+  
   |Id|	LastName|	FirstName|	Address|	City|
   |----|----|----|----|----|
   |1	|Adams	|ohn	|Oxford Street	|London
@@ -121,6 +125,7 @@
   例子：</br>
   原始的表：</br>
   Persons 表:
+  
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
   |1|	Adams	|John|	Oxford Street|	London|
@@ -136,6 +141,7 @@
   `note:"%" 可用于定义通配符（模式中缺少的字母）。`
   
   得到的结果：
+  
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
   |2|	Adams	|John|	Oxford Street|	London|
@@ -148,6 +154,7 @@
   WHERE City LIKE '%g'`
   
   得到的结果：
+  
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
   |3|	Carter	|Thomas	|Changan Street|	Beijing|
@@ -160,6 +167,7 @@
   WHERE City LIKE '%lon%'`
   
   得到的结果：
+  
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
   |1|	Adams	|John|	Oxford Street|	London|
@@ -172,6 +180,7 @@
   WHERE City NOT LIKE '%lon%'`
   
   得到的结果：
+  
   |Id|	LastName	|FirstName	|Address|	City|
   |----|----|----|----|----|----|
   |2|	Bush	|George	|Fifth Avenue|	New York|
@@ -188,12 +197,14 @@
   |_|	仅替代一个字符|
   |[charlist]	|字符列中的任何单一字符
   |[^charlist]或者[!charlist]|不在字符列中的任何单一字符
+  
 ### 9.in操作符：
   IN 操作符允许我们在 WHERE 子句中规定多个值。</br>
   
   例子：</br>
   原始的表：</br>
   Persons 表:
+  
   |Id|	LastName|	FirstName|	Address|	City|
   |----|----|----|----|----|
   |1|	Adams	|John|	Oxford Street|	London|
@@ -208,6 +219,7 @@
   WHERE LastName IN ('Adams','Carter')`
   
   结果集：
+  
   |Id|	LastName|	FirstName|	Address|	City|
   |----|----|----|----|----|
   |1|	Adams|	John|	Oxford| Street|	London|
