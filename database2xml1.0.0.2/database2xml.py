@@ -118,9 +118,11 @@ def writeInfoToXml(points, ways, relations):
                 elif deg >= 225 or deg < 315:
                     relation += '<tag k="restriction" v="no_right_on"/>\n'
 
-                relation += '<tag k="type" v="restriction"/>\n</relation></osm>\n'
+                relation += '<tag k="type" v="restriction"/>\n</relation>\n'
+
 
                 fo.write(relation)
+                fo.write('</osm>')
 
     fo.close()
 
