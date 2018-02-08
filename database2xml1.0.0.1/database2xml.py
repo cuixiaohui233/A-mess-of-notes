@@ -69,7 +69,7 @@ def writeInfoToXml(points, ways, relations):
         osm.appendChild(way)
     for r in relations:
         R = list(r)
-        print(R)
+        # print(R)
         if r.length == 3:
             relation = doc.createElement('relation')
             member1 = doc.createElement('menber')
