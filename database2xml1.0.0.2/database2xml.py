@@ -49,74 +49,73 @@ def writeInfoToXml(points, ways, relations):
 
     for rela in relations:
         # print(rela[0])
-        for r in rela[1]:
-            if len(rela[1]) == 3:
-                From = rela[1][0][1:-1].split(',')[1]
-                To = rela[1][2][1:-1].split(',')[1]
-                curor = conn.cursor()
-                curor.execute(
-                    'select gid from anheb where node_lid like \'%' + From + '%\' and node_lid like \'%' + To + '%\';')
-                Via = curor.fetchall()
-                relation = '<relation id="'+str(rela[0])+'" version="4" visible="true"><member ref="'+From+'" role="from" type="way"/><member ref="'+str(Via[0][0])+'" role="via" type="way"/><member ref="'+To+'" role="to" type="way"/>'
+        if len(rela[1]) == 3:
+            From = rela[1][0][1:-1].split(',')[1]
+            To = rela[1][2][1:-1].split(',')[1]
+            curor = conn.cursor()
+            curor.execute(
+                'select gid from anheb where node_lid like \'%' + From + '%\' and node_lid like \'%' + To + '%\';')
+            Via = curor.fetchall()
+            relation = '<relation id="'+str(rela[0])+'" version="4" visible="true"><member ref="'+From+'" role="from" type="way"/><member ref="'+str(Via[0][0])+'" role="via" type="way"/><member ref="'+To+'" role="to" type="way"/>'
 
-                deg = rela[1][2][1:-1].split(',')[2]
-                if deg < 45 or deg >= 315:
-                    relation += '<tag k="restriction" v="no_u_turn"/>'
-                elif deg >= 45 or deg < 135:
-                    relation += '<tag k="restriction" v="no_left_turn"/>'
-                elif deg >= 135 or deg <= 225:
-                    relation += '<tag k="restriction" v="no_straight_on"/>'
-                elif deg >= 225 or deg < 315:
-                    relation += '<tag k="restriction" v="no_right_on"/>'
+            deg = rela[1][2][1:-1].split(',')[2]
+            if deg < 45 or deg >= 315:
+                relation += '<tag k="restriction" v="no_u_turn"/>'
+            elif deg >= 45 or deg < 135:
+                relation += '<tag k="restriction" v="no_left_turn"/>'
+            elif deg >= 135 or deg <= 225:
+                relation += '<tag k="restriction" v="no_straight_on"/>'
+            elif deg >= 225 or deg < 315:
+                relation += '<tag k="restriction" v="no_right_on"/>'
 
-                relation += '<tag k="type" v="restriction"/></relation>'
-                fo.write(relation)
-            elif len(rela[1]) == 4:
-                relation = '<relation id="'+str(rela[0])+'" version="4" visible="true"><member ref="'+rela[1][0][1:-1].split(',')[1]+'" role="from" type="way"/><member ref="'+rela[1][2][1:-1].split(',')[1]+'" role="via" type="way"/><member ref="'+rela[1][3][1:-1].split(',')[1]+'" role="to" type="way"/>'
-                deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
-                if deg < 45 or deg >= 315:
-                    relation += '<tag k="restriction" v="no_u_turn"/>'
-                elif deg >= 45 or deg < 135:
-                    relation += '<tag k="restriction" v="no_left_turn"/>'
-                elif deg >= 135 or deg <= 225:
-                    relation += '<tag k="restriction" v="no_straight_on"/>'
-                elif deg >= 225 or deg < 315:
-                    relation += '<tag k="restriction" v="no_right_on"/>'
+            relation += '<tag k="type" v="restriction"/></relation>'
+            fo.write(relation)
+        elif len(rela[1]) == 4:
+            relation = '<relation id="'+str(rela[0])+'" version="4" visible="true"><member ref="'+rela[1][0][1:-1].split(',')[1]+'" role="from" type="way"/><member ref="'+rela[1][2][1:-1].split(',')[1]+'" role="via" type="way"/><member ref="'+rela[1][3][1:-1].split(',')[1]+'" role="to" type="way"/>'
+            deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
+            if deg < 45 or deg >= 315:
+                relation += '<tag k="restriction" v="no_u_turn"/>'
+            elif deg >= 45 or deg < 135:
+                relation += '<tag k="restriction" v="no_left_turn"/>'
+            elif deg >= 135 or deg <= 225:
+                relation += '<tag k="restriction" v="no_straight_on"/>'
+            elif deg >= 225 or deg < 315:
+                relation += '<tag k="restriction" v="no_right_on"/>'
 
-                relation += '<tag k="type" v="restriction"/></relation>'
-                fo.write(relation)
+            relation += '<tag k="type" v="restriction"/></relation>'
+            fo.write(relation)
 
-            elif len(rela[1]) == 5:
-                relation = '<relation id="' + str(rela[0]) + '" version="4" visible="true"><member ref="' + rela[1][2][1:-1].split(',')[1] + '" role="from" type="way"/><member ref="' + rela[1][3][1:-1].split(',')[1] + '" role="via" type="way"/><member ref="' + rela[1][4][1:-1].split(',')[1] + '" role="to" type="way"/>'
-                deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
-                if deg < 45 or deg >= 315:
-                    relation += '<tag k="restriction" v="no_u_turn"/>'
-                elif deg >= 45 or deg < 135:
-                    relation += '<tag k="restriction" v="no_left_turn"/>'
-                elif deg >= 135 or deg <= 225:
-                    relation += '<tag k="restriction" v="no_straight_on"/>'
-                elif deg >= 225 or deg < 315:
-                    relation += '<tag k="restriction" v="no_right_on"/>'
+        elif len(rela[1]) == 5:
+            relation = '<relation id="' + str(rela[0]) + '" version="4" visible="true"><member ref="' + rela[1][2][1:-1].split(',')[1] + '" role="from" type="way"/><member ref="' + rela[1][3][1:-1].split(',')[1] + '" role="via" type="way"/><member ref="' + rela[1][4][1:-1].split(',')[1] + '" role="to" type="way"/>'
+            deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
+            if deg < 45 or deg >= 315:
+                relation += '<tag k="restriction" v="no_u_turn"/>'
+            elif deg >= 45 or deg < 135:
+                relation += '<tag k="restriction" v="no_left_turn"/>'
+            elif deg >= 135 or deg <= 225:
+                relation += '<tag k="restriction" v="no_straight_on"/>'
+            elif deg >= 225 or deg < 315:
+                relation += '<tag k="restriction" v="no_right_on"/>'
 
-                relation += '<tag k="type" v="restriction"/></relation>'
-                fo.write(relation)
+            relation += '<tag k="type" v="restriction"/></relation>'
+            fo.write(relation)
 
-            elif len(rela[1]) == 6:
-                relation = '<relation id="' + str(rela[0]) + '" version="4" visible="true"><member ref="' + rela[1][2][1:-1].split(',')[1] + '" role="from" type="way"/><member ref="' + rela[1][3][1:-1].split(',')[1] + '" role="via" type="way"/><member ref="' + rela[1][4][1:-1].split(',')[1] + '" role="to" type="way"/>'
-                deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
-                if deg < 45 or deg >= 315:
-                    relation += '<tag k="restriction" v="no_u_turn"/>'
-                elif deg >= 45 or deg < 135:
-                    relation += '<tag k="restriction" v="no_left_turn"/>'
-                elif deg >= 135 or deg <= 225:
-                    relation += '<tag k="restriction" v="no_straight_on"/>'
-                elif deg >= 225 or deg < 315:
-                    relation += '<tag k="restriction" v="no_right_on"/>'
+        elif len(rela[1]) == 6:
+            relation = '<relation id="' + str(rela[0]) + '" version="4" visible="true"><member ref="' + rela[1][2][1:-1].split(',')[1] + '" role="from" type="way"/><member ref="' + rela[1][3][1:-1].split(',')[1] + '" role="via" type="way"/><member ref="' + rela[1][4][1:-1].split(',')[1] + '" role="to" type="way"/>'
+            deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
+            if deg < 45 or deg >= 315:
+                relation += '<tag k="restriction" v="no_u_turn"/>'
+            elif deg >= 45 or deg < 135:
+                relation += '<tag k="restriction" v="no_left_turn"/>'
+            elif deg >= 135 or deg <= 225:
+                relation += '<tag k="restriction" v="no_straight_on"/>'
+            elif deg >= 225 or deg < 315:
+                relation += '<tag k="restriction" v="no_right_on"/>'
 
-                relation += '<tag k="type" v="restriction"/></relation>'
-                fo.write(relation)
-            else:
-                continue
+            relation += '<tag k="type" v="restriction"/></relation>'
+            fo.write(relation)
+        else:
+            continue
 
     fo.write('</osm>')
 
