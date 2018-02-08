@@ -70,7 +70,7 @@ def writeInfoToXml(points, ways, relations):
     for r in relations:
         R = list(r)
         # print(R)
-        if r.length == 3:
+        if len(r) == 3:
             relation = doc.createElement('relation')
             member1 = doc.createElement('menber')
             member2 = doc.createElement('menber')
@@ -95,7 +95,7 @@ def writeInfoToXml(points, ways, relations):
             relation.appendChild(member3)
             relation.appendChild(tag1)
             relation.appendChild(tag2)
-        elif r.length == 4:
+        elif len(r) == 4:
             relation = doc.createElement('relation')
             member1 = doc.createElement('menber')
             member2 = doc.createElement('menber')
@@ -124,7 +124,7 @@ def writeInfoToXml(points, ways, relations):
             relation.appendChild(member3)
             relation.appendChild(tag1)
             relation.appendChild(tag2)
-        elif r.length == 5:
+        elif len(r) == 5:
             relation = doc.createElement('relation')
             member1 = doc.createElement('menber')
             member2 = doc.createElement('menber')
@@ -153,7 +153,7 @@ def writeInfoToXml(points, ways, relations):
             relation.appendChild(member3)
             relation.appendChild(tag1)
             relation.appendChild(tag2)
-        elif r.length == 6:
+        elif len(r) == 6:
             relation = doc.createElement('relation')
             member1 = doc.createElement('menber')
             member2 = doc.createElement('menber')
