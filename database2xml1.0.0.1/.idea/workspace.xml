@@ -10,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/database2xml$database2xml.coverage" NAME="database2xml Coverage Results" MODIFIED="1517820962820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/database2xml$database2xml.coverage" NAME="database2xml Coverage Results" MODIFIED="1517907626895" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -18,14 +18,28 @@
       <file leaf-file-name="database2xml.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/database2xml.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="155" column="19" lean-forward="false" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
+            <state relative-caret-position="108">
+              <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
-                <marker date="1518077539000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
-                <marker date="1518077539000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
-                <marker date="1518077539000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
-                <marker date="1518077539000" expanded="true" signature="423:446" ph="SELECT * fro... arlheb" />
+                <marker date="1518078740000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
+                <marker date="1518078740000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
+                <marker date="1518078740000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
+                <marker date="1518078740000" expanded="true" signature="423:450" ph="SELECT * fro... arlheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3194" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3195" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3197" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3198" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3201" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3211" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3232" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3234" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3235" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3238" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3246" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3248" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3249" ph="select node_... anheb" />
+                <marker date="1518078740000" expanded="true" signature="3149:3251" ph="select node_... anheb" />
               </folding>
             </state>
           </provider>
@@ -34,8 +48,8 @@
       <file leaf-file-name="hlj.osm" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hlj.osm">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="7076370">
+              <caret line="471758" column="50" lean-forward="false" selection-start-line="471758" selection-start-column="50" selection-end-line="471758" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -49,7 +63,21 @@
       <find>852966</find>
       <find>3004672</find>
       <find>3097580</find>
+      <find>menber</find>
+      <find>3012697</find>
+      <find>str(ways[0])</find>
+      <find>print</find>
+      <find>writeInfoToXml</find>
+      <find>relations</find>
+      <find>relation</find>
+      <find>replace</find>
+      <find>rela</find>
+      <find>via</find>
     </findStrings>
+    <replaceStrings>
+      <replace>member</replace>
+      <replace>str(ways[0])</replace>
+    </replaceStrings>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -84,22 +112,22 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database2xml1.0.0.1" />
+              <option name="myItemId" value="database2xml" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="database2xml1.0.0.1" />
+              <option name="myItemId" value="database2xml" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -298,6 +326,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="4b543bf8-ab5a-4c37-b53d-60411d6cb146" name="Default" comment="" />
@@ -319,7 +350,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24457832" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27831325" sideWeight="0.49713877" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26024097" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -350,7 +381,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="16" />
+      <option name="time" value="41" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -361,18 +392,32 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1518077539000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
-            <marker date="1518077539000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
-            <marker date="1518077539000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
-            <marker date="1518077539000" expanded="true" signature="423:446" ph="SELECT * fro... arlheb" />
+            <marker date="1518078740000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
+            <marker date="1518078740000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
+            <marker date="1518078740000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
+            <marker date="1518078740000" expanded="true" signature="423:450" ph="SELECT * fro... arlheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3194" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3195" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3197" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3198" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3201" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3211" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3232" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3234" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3235" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3238" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3246" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3248" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3249" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3251" ph="select node_... anheb" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hlj.osm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="7076370">
+          <caret line="471758" column="50" lean-forward="false" selection-start-line="471758" selection-start-column="50" selection-end-line="471758" selection-end-column="50" />
           <folding />
         </state>
       </provider>
@@ -383,10 +428,24 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1518077539000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
-            <marker date="1518077539000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
-            <marker date="1518077539000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
-            <marker date="1518077539000" expanded="true" signature="423:446" ph="SELECT * fro... arlheb" />
+            <marker date="1518078740000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
+            <marker date="1518078740000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
+            <marker date="1518078740000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
+            <marker date="1518078740000" expanded="true" signature="423:450" ph="SELECT * fro... arlheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3194" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3195" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3197" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3198" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3201" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3211" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3232" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3234" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3235" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3238" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3246" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3248" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3249" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3251" ph="select node_... anheb" />
           </folding>
         </state>
       </provider>
@@ -399,24 +458,64 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/pydevd.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="1014" column="0" lean-forward="false" selection-start-line="1014" selection-start-column="0" selection-end-line="1014" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/StringIO.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-278">
+          <caret line="222" column="0" lean-forward="false" selection-start-line="222" selection-start-column="0" selection-end-line="222" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/xml/dom/minidom.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="1606" column="0" lean-forward="false" selection-start-line="1606" selection-start-column="0" selection-end-line="1606" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/hlj.osm">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="7076370">
+          <caret line="471758" column="50" lean-forward="false" selection-start-line="471758" selection-start-column="50" selection-end-line="471758" selection-end-column="50" />
           <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-210892">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/database2xml.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="155" column="19" lean-forward="false" selection-start-line="155" selection-start-column="19" selection-end-line="155" selection-end-column="19" />
+        <state relative-caret-position="108">
+          <caret line="59" column="8" lean-forward="false" selection-start-line="59" selection-start-column="8" selection-end-line="59" selection-end-column="8" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
-            <marker date="1518077539000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
-            <marker date="1518077539000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
-            <marker date="1518077539000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
-            <marker date="1518077539000" expanded="true" signature="423:446" ph="SELECT * fro... arlheb" />
+            <marker date="1518078740000" expanded="true" signature="284:363" ph="SELECT * fro... z_levelheilongjiang" />
+            <marker date="1518078740000" expanded="true" signature="284:368" ph="SELECT light... anheb" />
+            <marker date="1518078740000" expanded="true" signature="386:405" ph="SELECT gid, anheb" />
+            <marker date="1518078740000" expanded="true" signature="423:450" ph="SELECT * fro... arlheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3194" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3195" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3197" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3198" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3201" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3211" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3232" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3234" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3235" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3238" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3246" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3248" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3249" ph="select node_... anheb" />
+            <marker date="1518078740000" expanded="true" signature="3149:3251" ph="select node_... anheb" />
           </folding>
         </state>
       </provider>

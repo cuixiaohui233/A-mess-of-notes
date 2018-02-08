@@ -13,14 +13,14 @@ cur2 = conn.cursor()
 # Execute the SQL statement by execute
 cur.execute('SELECT gid, light_flag, z, node_id, st_astext((ST_DumpPoints(geom)).geom) from anheb;')
 cur1.execute('SELECT * from arheb;')
-cur2.execute('SELECT ways from relheb;')
+cur2.execute('SELECT id, ways from relheb;')
 # print(cur.fetchall())
 
 # The query result is assigned to the variable points by the fetchall method
 points = cur.fetchall()
 ways = cur1.fetchall()
 relations = cur2.fetchall()
-# print (ways)
+# print (relations[0])
 # Declare the writeInfoToXml function, which is used to generate the tag tag for OSM
 def writeInfoToXml(points, ways, relations):
     doc = xml.dom.minidom.Document()
@@ -56,136 +56,198 @@ def writeInfoToXml(points, ways, relations):
         way.appendChild(wayTag1)
         way.appendChild(wayTag2)
 
-        # if str(road[1]) == '3004672':
-        #     print(stop);
 
-        ndSort = []
-        for n in road[4]:
-            ndSort = sorted(road[4], key=lambda i: int(i[1:-1].split(',')[1]))
+        ndSort = sorted(road[4], key=lambda i: int(i[1:-1].split(',')[1]))
         for n in ndSort:
             nd = doc.createElement('nd')
             nd.setAttribute('ref', n[1:-1].split(',')[0])
             way.appendChild(nd)
         osm.appendChild(way)
-    for r in relations:
-        R = list(r)
-        # print(R)
-        if len(r) == 3:
-            relation = doc.createElement('relation')
-            member1 = doc.createElement('menber')
-            member2 = doc.createElement('menber')
-            member3 = doc.createElement('menber')
-            tag1 = doc.createElement('tag')
-            tag2 = doc.createElement('tag')
-            member1.setAttribute('type',"way")
-            member1.setAttribute('ref',r[0][0])
-            member1.setAttribute('role',"from")
-            member2.setAttribute('type', "way")
-            member2.setAttribute('ref',r[0][2])
-            member2.setAttribute('role', "via")
-            member3.setAttribute('type', "way")
-            member3.setAttribute('ref', "")
-            member3.setAttribute('role', "to")
-            tag1.setAttribute("k","restriction")
-            tag1.setAttribute("v","")
-            tag2.setAttribute("k","type")
-            tag2.setAttribute("v","restriction")
-            relation.appendChild(member1)
-            relation.appendChild(member2)
-            relation.appendChild(member3)
-            relation.appendChild(tag1)
-            relation.appendChild(tag2)
-        elif len(r) == 4:
-            relation = doc.createElement('relation')
-            member1 = doc.createElement('menber')
-            member2 = doc.createElement('menber')
-            member3 = doc.createElement('menber')
-            member4 = doc.createElement('menber')
-            tag1 = doc.createElement('tag')
-            tag2 = doc.createElement('tag')
-            member1.setAttribute('type', "way")
-            member1.setAttribute('ref', r[0][0])
-            member1.setAttribute('role', "from")
-            member2.setAttribute('type', "way")
-            member2.setAttribute('ref', r[0][2])
-            member2.setAttribute('role', "from")
-            member3.setAttribute('type', "way")
-            member3.setAttribute('ref', "")
-            member3.setAttribute('role', "via")
-            member4.setAttribute('type', "way")
-            member4.setAttribute('ref', r[0][3])
-            member4.setAttribute('role', "to")
-            tag1.setAttribute("k", "restriction")
-            tag1.setAttribute("v", "")
-            tag2.setAttribute("k", "type")
-            tag2.setAttribute("v", "restriction")
-            relation.appendChild(member1)
-            relation.appendChild(member2)
-            relation.appendChild(member3)
-            relation.appendChild(tag1)
-            relation.appendChild(tag2)
-        elif len(r) == 5:
-            relation = doc.createElement('relation')
-            member1 = doc.createElement('menber')
-            member2 = doc.createElement('menber')
-            member3 = doc.createElement('menber')
-            member4 = doc.createElement('menber')
-            tag1 = doc.createElement('tag')
-            tag2 = doc.createElement('tag')
-            member1.setAttribute('type', "way")
-            member1.setAttribute('ref', r[0][2])
-            member1.setAttribute('role', "from")
-            member2.setAttribute('type', "way")
-            member2.setAttribute('ref', r[0][3])
-            member2.setAttribute('role', "from")
-            member3.setAttribute('type', "way")
-            member3.setAttribute('ref', "")
-            member3.setAttribute('role', "via")
-            member4.setAttribute('type', "way")
-            member4.setAttribute('ref', r[0][4])
-            member4.setAttribute('role', "to")
-            tag1.setAttribute("k", "restriction")
-            tag1.setAttribute("v", "")
-            tag2.setAttribute("k", "type")
-            tag2.setAttribute("v", "restriction")
-            relation.appendChild(member1)
-            relation.appendChild(member2)
-            relation.appendChild(member3)
-            relation.appendChild(tag1)
-            relation.appendChild(tag2)
-        elif len(r) == 6:
-            relation = doc.createElement('relation')
-            member1 = doc.createElement('menber')
-            member2 = doc.createElement('menber')
-            member3 = doc.createElement('menber')
-            tag1 = doc.createElement('tag')
-            tag2 = doc.createElement('tag')
-            member1.setAttribute('type', "way")
-            member1.setAttribute('ref', r[0][2])
-            member1.setAttribute('role', "from")
-            member2.setAttribute('type', "way")
-            member2.setAttribute('ref', r[0][3])
-            member2.setAttribute('role', "from")
-            member3.setAttribute('type', "way")
-            member3.setAttribute('ref', "")
-            member3.setAttribute('role', "via")
-            member4.setAttribute('type', "way")
-            member4.setAttribute('ref', r[0][4])
-            member4.setAttribute('role', "to")
-            tag1.setAttribute("k", "restriction")
-            tag1.setAttribute("v", "")
-            tag2.setAttribute("k", "type")
-            tag2.setAttribute("v", "restriction")
-            relation.appendChild(member1)
-            relation.appendChild(member2)
-            relation.appendChild(member3)
-            relation.appendChild(tag1)
-            relation.appendChild(tag2)
-    osm.appendChild(relation)
+
+    for rela in relations:
+        for r in rela[1]:
+            if len(rela[1]) == 3:
+                relation = doc.createElement('relation')
+                member1 = doc.createElement('member')
+                member2 = doc.createElement('member')
+                member3 = doc.createElement('member')
+                tag1 = doc.createElement('tag')
+                tag2 = doc.createElement('tag')
+
+                relation.setAttribute("id",str(rela[0]))
+                relation.setAttribute("visible","true")
+                relation.setAttribute("version","4")
+
+                member1.setAttribute('type',"way")
+                From = rela[1][0][1:-1].split(',')[1]
+                To = rela[1][2][1:-1].split(',')[1]
+                member1.setAttribute('ref',From)
+                member1.setAttribute('role',"from")
+                curor = conn.cursor()
+                curor.execute('select node_id from anheb where node_lid like \'%' + From + '%\' and node_lid like \'%' + To + '%\';')
+                Via = curor.fetchall()
+                member2.setAttribute('type', "node")
+                member2.setAttribute('ref',Via[0][0])
+                member2.setAttribute('role', "via")
+
+                member3.setAttribute('type', "way")
+                member3.setAttribute('ref',To)
+                member3.setAttribute('role', "to")
+
+                tag1.setAttribute("k","restriction")
+                deg = rela[1][2][1:-1].split(',')[2]
+                if deg < 45 or deg >= 315:
+                    tag1.setAttribute("v","no_u_turn")
+                elif deg >=45 or deg < 135:
+                    tag1.setAttribute("v", "no_left_turn")
+                elif deg >= 135 or deg <= 225:
+                    tag1.setAttribute("v", "no_straight_on")
+                elif deg >= 225 or deg < 315:
+                    tag1.setAttribute("v", "no_right_on")
+                tag2.setAttribute("k","type")
+                tag2.setAttribute("v","restriction")
+                relation.appendChild(member1)
+                relation.appendChild(member2)
+                relation.appendChild(member3)
+                relation.appendChild(tag1)
+                relation.appendChild(tag2)
+            elif len(rela[1]) == 4:
+                relation = doc.createElement('relation')
+                member1 = doc.createElement('member')
+                member2 = doc.createElement('member')
+                member3 = doc.createElement('member')
+                tag1 = doc.createElement('tag')
+                tag2 = doc.createElement('tag')
+                relation.setAttribute("id",str(rela[0]))
+                relation.setAttribute("version","4")
+                relation.setAttribute("visible","true")
+
+                member1.setAttribute('type', "way")
+                member1.setAttribute('ref', rela[1][0][1:-1].split(',')[1])
+                member1.setAttribute('role', "from")
+
+                member2.setAttribute('type', "way")
+                member2.setAttribute('ref', rela[1][2][1:-1].split(',')[1])
+                member2.setAttribute('role', "via")
+
+                member3.setAttribute('type', "way")
+                member3.setAttribute('ref', rela[1][3][1:-1].split(',')[1])
+                member3.setAttribute('role', "to")
+
+                tag1.setAttribute("k", "restriction")
+                # print(int(rela[1][2][1:-1].split(',')[2]),int(rela[1][3][1:-1].split(',')[2]))
+                deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
+                if deg < 45 or deg >= 315:
+                    tag1.setAttribute("v", "no_u_turn")
+                elif deg >= 45 or deg < 135:
+                    tag1.setAttribute("v", "no_left_turn")
+                elif deg >= 135 or deg <= 225:
+                    tag1.setAttribute("v", "no_straight_on")
+                elif deg >= 225 or deg < 315:
+                    tag1.setAttribute("v", "no_right_on")
+
+                tag2.setAttribute("k", "type")
+                tag2.setAttribute("v", "restriction")
+
+                relation.appendChild(member1)
+                relation.appendChild(member2)
+                relation.appendChild(member3)
+                relation.appendChild(tag1)
+                relation.appendChild(tag2)
+            elif len(rela[1]) == 5:
+                relation = doc.createElement('relation')
+                member1 = doc.createElement('member')
+                member2 = doc.createElement('member')
+                member3 = doc.createElement('member')
+                tag1 = doc.createElement('tag')
+                tag2 = doc.createElement('tag')
+
+                relation.setAttribute("id",str(rela[0]))
+                relation.setAttribute("version","4")
+                relation.setAttribute("visible","true")
+
+                member1.setAttribute('type', "way")
+                member1.setAttribute('ref', rela[1][2][1:-1].split(',')[1])
+                member1.setAttribute('role', "from")
+
+                member2.setAttribute('type', "way")
+                member2.setAttribute('ref', rela[1][3][1:-1].split(',')[1])
+                member2.setAttribute('role', "via")
+
+                member3.setAttribute('type', "way")
+                member3.setAttribute('ref', rela[1][4][1:-1].split(',')[1])
+                member3.setAttribute('role', "to")
+
+                tag1.setAttribute("k", "restriction")
+                deg = int(rela[1][3][1:-1].split(',')[2]) + int(rela[1][4][1:-1].split(',')[2]) - 180
+                if deg < 45 or deg >= 315:
+                    tag1.setAttribute("v", "no_u_turn")
+                elif deg >= 45 or deg < 135:
+                    tag1.setAttribute("v", "no_left_turn")
+                elif deg >= 135 or deg <= 225:
+                    tag1.setAttribute("v", "no_straight_on")
+                elif deg >= 225 or deg < 315:
+                    tag1.setAttribute("v", "no_right_on")
+
+                tag2.setAttribute("k", "type")
+                tag2.setAttribute("v", "restriction")
+                relation.appendChild(member1)
+                relation.appendChild(member2)
+                relation.appendChild(member3)
+                relation.appendChild(tag1)
+                relation.appendChild(tag2)
+            elif len(rela[1]) == 6:
+                relation = doc.createElement('relation')
+                member1 = doc.createElement('member')
+                member2 = doc.createElement('member')
+                member3 = doc.createElement('member')
+                tag1 = doc.createElement('tag')
+                tag2 = doc.createElement('tag')
+
+                relation.setAttribute("id",str(rela[0]))
+                relation.setAttribute("version","4")
+                relation.setAttribute("visible","true")
+
+                member1.setAttribute('type', "way")
+                member1.setAttribute('ref', rela[1][2][1:-1].split(',')[1])
+                member1.setAttribute('role', "from")
+
+                member2.setAttribute('type', "way")
+                member2.setAttribute('ref', rela[1][3][1:-1].split(',')[1])
+                member2.setAttribute('role', "via")
+
+                member3.setAttribute('type', "way")
+                member3.setAttribute('ref', rela[1][4][1:-1].split(',')[1])
+                member3.setAttribute('role', "to")
+
+                tag1.setAttribute("k", "restriction")
+                deg = int(rela[1][3][1:-1].split(',')[2]) + int(rela[1][4][1:-1].split(',')[2]) - 180
+                if deg < 45 or deg >= 315:
+                    tag1.setAttribute("v", "no_u_turn")
+                elif deg >= 45 or deg < 135:
+                    tag1.setAttribute("v", "no_left_turn")
+                elif deg >= 135 or deg <= 225:
+                    tag1.setAttribute("v", "no_straight_on")
+                elif deg >= 225 or deg < 315:
+                    tag1.setAttribute("v", "no_right_on")
+
+                tag2.setAttribute("k", "type")
+                tag2.setAttribute("v", "restriction")
+
+                relation.appendChild(member1)
+                relation.appendChild(member2)
+                relation.appendChild(member3)
+                relation.appendChild(tag1)
+                relation.appendChild(tag2)
+            else:
+                continue
+        osm.appendChild(relation)
+
     # open hlj.osm file
     fo = open("hlj.osm", 'w')
     # Insert the written label into the OSM file
     fo.write(doc.toprettyxml(indent='\t', encoding='utf-8'))
+    fo.close()
     return
 
 writeInfoToXml(points,ways,relations)
