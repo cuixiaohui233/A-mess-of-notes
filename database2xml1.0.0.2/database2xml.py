@@ -32,7 +32,7 @@ def writeInfoToXml(points, ways, relations):
     fo.write(osm)
 
     for point in points:
-        node = '<node id="'+ str(point[0]) +'" lat="'+point[4][6:-1].split(' ')[0]+'" lon="'+point[4][6:-1].split(' ')[1]+'" version="4" visible="true"/>\n'
+        node = '<node id="'+ str(point[0]) +'" lat="'+point[4][6:-1].split(' ')[1]+'" lon="'+point[4][6:-1].split(' ')[0]+'" version="4" visible="true"/>\n'
 
         if(point[1] == '1'):
             node = node[0:-2]
@@ -118,7 +118,7 @@ def writeInfoToXml(points, ways, relations):
                 elif deg >= 225 or deg < 315:
                     relation += '<tag k="restriction" v="no_right_on"/>\n'
 
-                relation += '<tag k="type" v="restriction"/>\n</relation>\n'
+                relation += '<tag k="type" v="restriction"/>\n</relation></osm>\n'
 
                 fo.write(relation)
 
