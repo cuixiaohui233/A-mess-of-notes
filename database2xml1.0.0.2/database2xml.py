@@ -68,8 +68,9 @@ def writeInfoToXml(points, ways, relations):
                     relation += '<tag k="restriction" v="no_straight_on"/>\n'
                 elif deg >= 225 or deg < 315:
                     relation += '<tag k="restriction" v="no_right_on"/>\n'
-
                 relation += '<tag k="type" v="restriction"/>\n</relation>\n'
+                fo.write(relation)
+
             elif len(rela[1]) == 4:
                 relation = '<relation id="'+str(rela[0])+'" version="4" visible="true">\n<member ref="'+rela[1][0][1:-1].split(',')[1]+'" role="from" type="way"/>\n<member ref="'+rela[1][2][1:-1].split(',')[1]+'" role="via" type="way"/>\n<member ref="'+rela[1][3][1:-1].split(',')[1]+'" role="to" type="way"/>\n'
                 deg = int(rela[1][2][1:-1].split(',')[2]) + int(rela[1][3][1:-1].split(',')[2]) - 180
@@ -81,10 +82,9 @@ def writeInfoToXml(points, ways, relations):
                     relation += '<tag k="restriction" v="no_straight_on"/>\n'
                 elif deg >= 225 or deg < 315:
                     relation += '<tag k="restriction" v="no_right_on"/>\n'
-
                 relation += '<tag k="type" v="restriction"/>\n</relation>\n'
-            #
-            #     # fo.write(relation)
+                fo.write(relation)
+
             elif len(rela[1]) == 5:
                 relation = '<relation id="' + str(rela[0]) + '" version="4" visible="true">\n<member ref="' + \
                            rela[1][2][1:-1].split(',')[1] + '" role="from" type="way"/>\n<member ref="' + \
@@ -99,10 +99,9 @@ def writeInfoToXml(points, ways, relations):
                     relation += '<tag k="restriction" v="no_straight_on"/>\n'
                 elif deg >= 225 or deg < 315:
                     relation += '<tag k="restriction" v="no_right_on"/>\n'
-
                 relation += '<tag k="type" v="restriction"/></relation>\n'
-            #
-            #     # fo.write(relation)
+                fo.write(relation)
+
             elif len(rela[1]) == 6:
                 relation = '<relation id="' + str(rela[0]) + '" version="4" visible="true">\n<member ref="' + \
                            rela[1][2][1:-1].split(',')[1] + '" role="from" type="way"/>\n<member ref="' + \
@@ -117,12 +116,10 @@ def writeInfoToXml(points, ways, relations):
                     relation += '<tag k="restriction" v="no_straight_on"/>\n'
                 elif deg >= 225 or deg < 315:
                     relation += '<tag k="restriction" v="no_right_on"/>\n'
-
                 relation += '<tag k="type" v="restriction"/>\n</relation>\n'
-
-
                 fo.write(relation)
-                fo.write('</osm>')
+
+            fo.write('</osm>')
 
     fo.close()
 
