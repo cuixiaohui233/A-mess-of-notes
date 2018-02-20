@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" id="txt"/>
+		<script type="text/javascript">
+			/*
+			 	不是所有元素都有键盘事件，只有可输入的元素才有，比如输入框，document
+			 	按键按下，所有按键
+			 *   onkeydown
+			 * 
+			 *  非功能键按下
+			 *  onkeypress
+			 * 
+			 *  按键抬起
+			 *  onkeyup
+			 * 
+			 * keydown -> keypress ->keyup
+			 * 
+			 * keydown和keypress按下不抬起，一定时间间隔连续触发
+			 * keydown和keypress是内容输入前触发，不能获取当前输入的内容
+			 * 解决方法：
+			 * 	1.用keyup获取
+			 *  2.延时定时器
+			 * 
+			 * 按住键1，换成按住键2，第一个键2和第二个键2间系统默认一定时间间隔，后边会连续触发
+			 * 
+			 * */
+//			document.onkeydown = function(){
+//				console.log('down')
+//			}
+//			document.onkeypress = function(){
+//				console.log('press')
+//			}
+//			document.onkeyup = function(){
+//				console.log('up')
+//			}
+			var txt = document.getElementById('txt');
+//			txt.onkeydown = function(){
+//				console.log(this.value)
+//			}
+			txt.onkeypress = function(){
+				setTimeout(function(_this){
+					console.log(_this.value)
+				},10,this)
+			}
+//			txt.onkeyup = function(){
+//				console.log(this.value)
+//			}
+			
+		</script>
+	</body>
+</html>
