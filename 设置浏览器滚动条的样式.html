@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width:200px;
+				height:400px;
+				overflow: scroll;
+				border:1px solid #000;
+			}
+			/* .div{
+				width: 250px;
+				height: 450px;
+				background: red;
+			} */
+			/* 设置滚动条的样式 */
+			.box::-webkit-scrollbar{
+				width:15px;
+				height:13px;
+				background: skyblue;
+			}
+			.box::-webkit-scrollbar-thumb{
+				background: green;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="div">
+				哈</br>
+					哈</br>
+						哈</br>
+							哈</br>
+								哈</br>
+									哈</br>
+										哈</br>
+											哈</br>
+												哈</br>
+													哈</br>
+														哈</br>::-webkit-scrollbaasdjfklajfkjasjfasjfasfdsfar-track  滚动条的轨道（里面装有Thumb）</br>
+::-webkit-scrollbar-button 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。</br>
+::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去）</br>
+::-webkit-scrollbar-corner 边角，即两个滚动条的交汇处</br>
+::-webkit-resizer 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件</br>
+			</div>
+		</div>
+		<script type="text/javascript">
+			// ::-webkit-scrollbar 滚动条的整体部分（可设置滚动条的宽、高等）
+			// ::-webkit-scrollbar-thumb 设置滚动条中的可以店主滑动的小块
+			// ::-webkit-scrollbar-track  滚动条的轨道（里面装有Thumb）
+			// ::-webkit-scrollbar-button 滚动条的轨道的两端按钮，允许通过点击微调小方块的位置。
+			// ::-webkit-scrollbar-track-piece 内层轨道，滚动条中间部分（除去）
+			// ::-webkit-scrollbar-corner 边角，即两个滚动条的交汇处
+			// ::-webkit-resizer 两个滚动条的交汇处上用于通过拖动调整元素大小的小控件
+		</script>
+	</body>
+</html>
