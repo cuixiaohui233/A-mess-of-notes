@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### 填昨天的坑
 ### 换了新的工作，本来应该有有面试总结，可是面试就问了三个问题：
 1.手写一个函数来实现求一个数的n次方；
@@ -16,3 +17,8 @@
 ### 是react-inl的坑...
 总结一下,如果是<div>今天很兴奋...</div>这种形式的话，那么直接使用api就好了，这里有个[链接](http://blog.csdn.net/function__/article/details/72778964)
 但是如果是变量的话，那么...只有自己写一个reducer,然后调用config的里面配置了...
+=======
+### react-intl 国际化
+安装: npm install --save react-intl
+jintianhaolei,landexiele,chonggeshu
+>>>>>>> 26609e9c3ce71fb89841571436d60e6f803a0ba0
