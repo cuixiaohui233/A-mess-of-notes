@@ -16,3 +16,6 @@
 是react-inl的坑...</br>
 总结一下,如果是`<div>今天很兴奋...</div>`这种形式的话，那么直接使用api就好了，这里有个[链接](http://blog.csdn.net/function__/article/details/72778964)
 但是如果是变量的话，那么...只有自己写一个reducer,然后调用config的里面配置了...
+### 关于webpack,开始学习...
+##1.基本概念and核心概念</br>
+
