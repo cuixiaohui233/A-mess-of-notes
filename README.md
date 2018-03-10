@@ -57,7 +57,7 @@ module.exports = config;
     pageTwo:'/path/two.js',
     pageThree:'/path/three.js'
 }`
-好处是，不行了...我饿了...赶紧睡觉了...要不一会儿犯罪...
+好处是，不行了...我饿了...赶紧睡觉了...要不一会儿跑去吃泡面...
 ·出口文件（output）:<br/>
 
 
