@@ -21,9 +21,43 @@
 ·入口文件（entry）：</br>
 就是打包开始的入口起点(我的理解)，最简单的例子:</br>
 `
-moudle.exports = {
+moudle.exports = {</br>
+    entry:'/path/app.js'</br>
+}</br>
+`
+单个入口的写法：
+`const config = {
     entry:'/path/app.js'
 }
+module.exports = config;
 `
+或者：<br/>
+`const config = {
+  entry: {
+    main: './path/to/my/entry/file.js'
+  }
+};`
+对象写法：
+`const config = {
+    entry : {
+        app:'/path/app.js',
+        other:'/path/siderbar.js'
+    }
+}`
+
+分离应用程序(app)和第三方库（vendar）(适合单页面应用)：
+`const config = {
+    app:'/path/app.js',
+    vendar:'/path/verdar.js'// 第三方库
+}`
+`
+多页面应用程序：
+`const config = {
+    pageOne:'/path/one.js',
+    pageTwo:'/path/two.js',
+    pageThree:'/path/three.js'
+}`
+好处是，不行了...我饿了...赶紧睡觉了...要不一会儿犯罪...
+·出口文件（output）:<br/>
 
 
