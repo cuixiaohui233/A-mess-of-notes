@@ -52,9 +52,11 @@ module.exports = config;
 }`</br>
 多页面应用程序：</br>
 `const config = {
-    pageOne:'/path/one.js',
-    pageTwo:'/path/two.js',
-    pageThree:'/path/three.js'
+    entry:{
+        pageOne:'/path/one.js',
+        pageTwo:'/path/two.js',
+        pageThree:'/path/three.js'
+    }
 }`</br>
 ·出口文件（output）:<br/>
 就是在哪里输出创建好的 bundles文件
