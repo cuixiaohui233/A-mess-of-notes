@@ -63,6 +63,8 @@
             pageThree:'/path/three.js'
         }
     }
+
+
 ·出口文件（output）:<br/>
 就是在哪里输出创建好的 bundles文件<br />
 
@@ -86,8 +88,10 @@
         path:_dirname + '/dist'
     }
 
-以上是将两个入口文件 app.js,search.js 写入到硬盘：./dist/app.js,./diat/search.js<be/>
-由于webpack只理解JavaScript代码，所以需要loader去处理那些代码，可已将所有文件转换为webpack能处理的有效模块<br/>
+以上是将两个入口文件 app.js,search.js 写入到硬盘：./dist/app.js,./diat/search.js<br/>
+
+
+·loader,由于webpack只理解JavaScript代码，所以需要loader去处理那些代码，可已将所有文件转换为webpack能处理的有效模块<br/>
 loader有两个目标：<br/>
 1.test属性，用于标识出要抓换的文件的类型（后缀名，是个正则表达式）<br/>
 2.use属性，标识进行转换时用哪个loader;<br/>
