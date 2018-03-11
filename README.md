@@ -59,6 +59,62 @@ module.exports = config;
     }
 }`</br>
 ·出口文件（output）:<br/>
-就是在哪里输出创建好的 bundles文件
-
-
+就是在哪里输出创建好的 bundles文件<br />
+const path = require('path');
+`module.export = {
+    entry:'/path/app.js',
+    output:'
+        path:path.resolve(_diename,'dist'),
+        filename:'my-first-webpack-bundle.js'
+    '
+}
+`<br/>
+上面的例子告诉我们，生成的打包文件放在那里，路径，还有打包生成的的文件的名字是什么.<br/>
+如果有多个入口起点？<be/>
+`entry:{
+    app:'/path/app.js',
+    search:'/path/search.js'
+},
+output:{
+    filename:'[name].js',
+    path:_dirname + '/dist'
+}
+`
+以上是将两个入口文件 app.js,search.js 写入到硬盘：./dist/app.js,./diat/search.js<be/>
+由于webpack只理解JavaScript代码，所以需要loader去处理那些代码，可已将所有文件转换为webpack能处理的有效模块<br/>
+loader有两个目标：<br/>
+1.test属性，用于标识出要抓换的文件的类型（后缀名，是个正则表达式）<br/>
+2.use属性，标识进行转换时用哪个loader;<br/>
+在使用时需要下载哦：<br/>
+`npm i --save-dev css-loader`<br/>
+`
+    const psth = rquire('path');
+        entry:'/path/app.js',
+        output:{
+            path:path.resolve(_dirname,'dist'),
+            filename:'bundle.js'
+        },
+        module:{
+            rules:[
+                { test:/\.test$/, use:'raw-loader'}
+            ]
+        }
+    }
+`
+webpack允许你指定多个loader，而且代码简洁，可以让你看到整个loader的结构.<br/>
+`
+module:{
+    rules:[
+        test:/\.css$/,
+        use:[
+            { loader:'style-loader'},
+            {
+                loader:'css-loader',
+                options:{
+                    moudle:true
+                }
+            }
+        ]
+    ]
+}
+`
