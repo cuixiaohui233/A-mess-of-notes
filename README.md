@@ -21,9 +21,9 @@
 ·入口文件（entry）：</br>
 就是打包开始的入口起点(我的理解)，最简单的例子:</br>
 
-moudle.exports = {</br>
-    entry:'/path/app.js'
-}
+    moudle.exports = {</br>
+        entry:'/path/app.js'
+    }
 
 单个入口的写法：</br>
 
