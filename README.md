@@ -102,19 +102,19 @@ loader有两个目标：<br/>
     }
 `
 webpack允许你指定多个loader，而且代码简洁，可以让你看到整个loader的结构.<br/>
-`
-module:{
-    rules:[
-        test:/\.css$/,
-        use:[
-            { loader:'style-loader'},
-            {
-                loader:'css-loader',
-                options:{
-                    moudle:true
-                }
-            }
-        ]
-    ]
-}
-`
+
+        module:{
+            rules:[
+                test:/\.css$/,
+                use:[
+                    { loader:'style-loader'},
+                    {
+                        loader:'css-loader',
+                        options:{
+                            moudle:true
+                        }
+                    }
+                ]
+            ]
+        }
+
