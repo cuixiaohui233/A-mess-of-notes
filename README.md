@@ -156,3 +156,6 @@ webpack允许你指定多个loader，而且代码简洁，可以让你看到整�
         }
 
         module.exports = config;
+
+### es6 的 async 函数：
+明天总结...
